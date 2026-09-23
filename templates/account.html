@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cook-Up Login</title>
+    <style>
+        html{
+            height: 100%;
+        }
+
+        body{
+            background-color: rgb(61, 61, 61);
+            background-image: url("{{ url_for('static', filename='images/pexels-pixabay-326281.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            width: 400px;
+        }
+
+        form h1 {
+            font-size: 36px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 0;
+        }
+
+        .input-box {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .input-box input:focus {
+            border-color: #4CAF50;
+        }
+
+        /*styles for icons*/
+        .input-box i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #777;
+        }
+
+        /*syle for froms button*/
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .register-link a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        /*Registr styling*/
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        /*Cook-Up Logo on login page*/
+        .login-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-logo img {
+            transform: scale(1.2);
+            transform-origin: top;
+        }
+    </style>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="login-container">
+        <form action="{{ url_for('process') }}" method="POST">
+            <!--Cook-Up Logo on login page-->
+            <div class="login-logo">
+                <img src="{{ url_for('static', filename='images/Cook-Up Logo.png') }}" alt="Cook-Up Logo" height="80">
+            </div>
+            
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" name="usernameInput" placeholder="Username" required>
+                <i class="bx bxs-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name="passwordInput" placeholder="Password" required>
+                <i class="bx bxs-lock-alt"></i>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            
+            <div class="register-link">
+                <!--<a href = {{ url_for("tempPage") }}>RECIPES</a>-->
+                <p>Don't have an account? <a href="{{ url_for('register') }}">Register</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

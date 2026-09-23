@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>Background Image Code</title>
+</head>
+<body style="background-image: url('https://th.bing.com/th/id/R.1f6631027539a1b06e19b45816d23f7a?rik=9BVw%2fME5n5zX2w&riu=http%3a%2f%2fwww.freeppt.net%2fbackground%2frainbow-colors-backgrounds-for-powerpoint.jpg&ehk=XY1ESIgPIcgwG5iFugKq55lWzIRWXQv6UnAudwRYdUQ%3d&risl=&pid=ImgRaw&r=0'); background-size: cover; background-repeat: no-repeat;">
+    <!--<h1>Welcome to My Page</h1>-->
+
+    <a href = {{ url_for("home2") }}>HOME</a>
+    <h1>Searched Recipes For: {{searchInput}}</h1>
+    
+    <h1>Recipes:</h1>
+{%for fav in allRecipes %}
+        <h4><a href={{ url_for("recipes", recipeId = fav[0]) }}> {{fav[1]}} </a></h4>
+    {% endfor %}

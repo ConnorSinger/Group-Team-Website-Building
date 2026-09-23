@@ -1,0 +1,13 @@
+<html>
+    <head>
+    <title>Flask Demo</title>
+    </head>
+    <body>
+        <h1>Welcome to Flask Demo 2</h1>
+        <p>This is a simple demonstration of a Flask application.</p>
+        <div><form action= {{ url_for("process") }} method="post">
+        <input type="text" widgth="80" name="userinput">  
+        <input type="submit" value="Submit">
+        </form></div>
+    </body>
+    </html>

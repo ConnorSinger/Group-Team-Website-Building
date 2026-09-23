@@ -1,0 +1,24 @@
+
+<!--With the database I want a one to many relationship where one user can have multiple favorites
+    I am using a simple approach but it isn't efficent but its the only thing I can think of right now-->
+
+        <!--For the background-->
+<html>
+<head>
+    <title>Background Image Code</title>
+</head>
+<body style="background-image: url('https://static.vecteezy.com/system/resources/previews/007/188/842/large_2x/abstract-minimal-modern-geometric-shape-background-free-vector.jpg'); background-size: cover; background-repeat: no-repeat;">
+    <!--<h1>Welcome to My Page</h1>-->
+
+<a href = {{ url_for("home2") }}>HOME</a>
+    <h1>Searched Recipes For: {{searchInput}}</h1>
+
+    <h1>My Favorites</h1>
+
+    {%for fav in selectedFavorites %}
+        <h4><a href={{ url_for("recipes", recipeId = fav[1]) }}> {{fav[0]}} </a></h4>
+    {% endfor %}
+        
+
+</body>
+</html>

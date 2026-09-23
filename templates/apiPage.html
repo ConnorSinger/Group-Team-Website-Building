@@ -1,0 +1,61 @@
+<div class="test">
+    <url>
+        <li><a href="testing.html">Home</a></li>
+    </url>
+</div>
+
+<!---Getting The Background Image-->
+<html>
+<head>
+    <title>Background Image Code</title>
+</head>
+<body style="background-image: url('https://www.designyourway.net/blog/wp-content/uploads/2018/01/cool-computer-backgrounds-8.jpg'); background-size: cover; background-repeat: no-repeat;">
+    <!--<h1>Welcome to My Page</h1>-->
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alt Fuel Station Test</title>
+</head>
+<body>
+  <h1>Alt Fuel Stations</h1>
+  <pre id="output">Loading...</pre>
+
+
+
+  <script>
+    const apiKey = "mPe71FBWx9QcJhjgWhJU1wPdA1f4J7RWewZQbghG";
+    const url = `https://developer.nrel.gov/api/alt-fuel-stations/v1.json?limit=1`;
+
+    fetch(url, {
+      headers: {
+        "X-Api-Key": apiKey
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+
+      // Display the full data object in the <pre> tag
+      document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+      
+      //Changing The Color Of The Text
+      document.getElementById('output').style.color= "red";
+    })
+    .catch(error => { // If any errors pop up we just result this
+      document.getElementById('output').textContent = "Error: " + error;
+    });
+
+    //Testing 
+
+    
+
+
+  </script>
+</body>
+</html>

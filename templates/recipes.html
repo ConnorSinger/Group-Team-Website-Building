@@ -1,0 +1,52 @@
+
+
+
+<body style="background-image: url('https://static.vecteezy.com/system/resources/previews/021/920/040/large_2x/abstract-subtle-gradient-wave-background-free-vector.jpg'); background-size: cover; background-repeat: no-repeat;">
+</body>
+
+<a href = {{ url_for("home2") }}>HOME</a>
+    <h1>Searched Recipes For: {{searchInput}}</h1>
+    <h1>Testing ReciptId: {{recipeId}}</h1>
+
+{% set recipe = selectedRecipe %}
+{% for recipeForLoop in recipe %}
+          <h1>Title: {{recipeForLoop[1]}}</h1>
+            <!--{{recipeForLoop[1]}}-->
+            <h4>RecipeId: {{recipeForLoop[0]}}</h4>
+            <h4>Description: {{recipeForLoop[2]}}</h4>
+            <h4>Instructions: {{recipeForLoop[3]}}</h4>
+            <h4>Ingredients: {{recipeForLoop[4]}}</h4>
+            <h4>Category: {{recipeForLoop[5]}}</h4>
+            <h4>Prep Time: {{recipeForLoop[6]}}</h4>
+            <h4>Cook Time: {{recipeForLoop[7]}}</h4>
+            <h4>Servings: {{recipeForLoop[8]}}</h4>
+            <h4>Difficulty: {{recipeForLoop[9]}}</h4>
+            <h4>Author: {{recipeForLoop[10]}}</h4>
+
+            
+<div><form action= {{ url_for("insertComment", recipeId = recipeForLoop[0]) }} method="post">
+        <input type="text" width="80" name="commentText"> 
+        <input type="submit" value="Post Comment">
+        </form></div>
+      
+{% endfor %}
+
+
+<h1>Comments: </h1>
+{% set comments = recipeComments %}
+{% for commentForLoop in comments %}
+          <h4>Comment Id: {{commentForLoop[0]}}</h4>
+          <h4>Recipe Id: {{commentForLoop[1]}}</h4>
+          <h4>User Id: {{commentForLoop[2]}}</h4>
+          <h4>Comment Text: {{commentForLoop[3]}}</h4>
+          <h4>Parent Comment Id: {{commentForLoop[4]}}</h4>
+          <h4>Is Approved: {{commentForLoop[5]}}</h4>
+          <h4>Likes: {{commentForLoop[6]}}</h4>
+          <h3>Why do comments have photos?</h3>
+          <h4>Has An Image: {{commentForLoop[7]}}</h4>
+          <h4>Image: {{commentForLoop[8]}}</h4>
+          <h4>Created On: {{commentForLoop[9]}}</h4>
+          <h4>Last Modified: {{commentForLoop[10]}}</h4>
+
+          <h1>--------------------------------------------------</h1>
+{% endfor %}

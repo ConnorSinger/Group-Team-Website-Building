@@ -5,4 +5,5 @@ Dynamic Database Driven Website (Lead System Developer)
 •	Transformed a team that was splintering by knitting together project code created with different tools and methodology and helping members resolve blockers 
 
 Additionally, I have created most of the code / queries to grab the information from the database (SQL) using Python Flask.
-My Teammates helped with the test cases and design of the overall document such as styling and images.
+My Teammates helped with the test cases and design of the overall document such as styling and images, as well as the base files
+without any formatting (functionality)
